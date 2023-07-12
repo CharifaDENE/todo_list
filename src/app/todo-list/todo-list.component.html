@@ -1,0 +1,18 @@
+<h1>Todo List</h1>
+
+<div>
+    <label for="todoTitle">Titre :</label>
+    <textarea id="todoTitle" [(ngModel)]="newTodoTitle"></textarea>
+    <button (click)="addTodo()">Ajouter</button>
+</div>
+
+<ul>
+    <li *ngFor="let todo of todos">
+        <div>
+            <span>Date de création : {{ todo.createdAt | date }}</span>
+            <span>Titre : {{ todo.title }}</span>
+            <button (click)=" editTodo(todo) ">Modifier</button>
+            <button (click)="deleteTodo(todos.indexOf(todo)) ">Supprimer</button>
+        </div>
+    </li>
+</ul>

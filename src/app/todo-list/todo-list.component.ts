@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderBy} from ;
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -12,9 +11,12 @@ newTodoTitle : string = "";
   ngOnInit() { 
 
    }
-  editTodo(title: string){
-
-   }
+   editTodo(todo: Todo) {
+    const modifiedTitle = todo.title; 
+    const modifiedIndex = this.todos.indexOf(todo); 
+    this.todos[modifiedIndex].title = modifiedTitle;
+  }
+  
   addTodo() {
     const todo: Todo = {
       title: this.newTodoTitle,

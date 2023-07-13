@@ -1,18 +1,27 @@
-<h1>Todo List</h1>
+<div class="menu">
+    <h1>MENU</h1>
+    <div class="input-container">
+        <h3 for="todoTitle">Todo List </h3>
+        <textarea class="todo-title" rows="10" placeholder="Entrez la tâcle" id="todoTitle" [(ngModel)]="newTodoTitle"></textarea>
+        <button class="ajouter" (click)="addTodo()">Ajouter</button>
+    </div>
+    <div class="output-container">
 
-<div>
-    <label for="todoTitle">Titre :</label>
-    <textarea id="todoTitle" [(ngModel)]="newTodoTitle"></textarea>
-    <button (click)="addTodo()">Ajouter</button>
-</div>
+        <div *ngFor="let todo of todos">
+            <div class="output">
+                <div>
+                    <span>Titre : {{ todo.title }}</span>
+                </div>
+                <div>
+                    <span>Date de création : {{ todo.createdAt | date }}</span>
+                    <button (click)=" editTodo(todo) ">Modifier</button>
+                    <button (click)="deleteTodo(todos.indexOf(todo)) ">Supprimer</button>
 
-<ul>
-    <li *ngFor="let todo of todos">
-        <div>
-            <span>Date de création : {{ todo.createdAt | date }}</span>
-            <span>Titre : {{ todo.title }}</span>
-            <button (click)=" editTodo(todo) ">Modifier</button>
-            <button (click)="deleteTodo(todos.indexOf(todo)) ">Supprimer</button>
+                </div>
+
+            </div>
         </div>
-    </li>
-</ul>
+
+    </div>
+
+</div>

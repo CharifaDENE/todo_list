@@ -11,11 +11,7 @@ newTodoTitle : string = "";
   ngOnInit() { 
 
    }
-   editTodo(todo: Todo) {
-    const modifiedTitle = todo.title; 
-    const modifiedIndex = this.todos.indexOf(todo); 
-    this.todos[modifiedIndex].title = modifiedTitle;
-  }
+   editTodo: Todo | null = null;
   
   addTodo() {
     const todo: Todo = {
@@ -25,12 +21,23 @@ newTodoTitle : string = "";
     this.todos.push(todo);
   }
 
+  editeTodo(todo: Todo) {
+    this.editTodo = todo;
+  }
   deleteTodo(index: number) {
     this.todos.splice(index, 1);
   }
+
+  updateTodo() {
+    if (this.editTodo) {
+      this.editTodo = null;
+    }
+  }
+  
 }
 
 interface Todo {
   title: string;
   createdAt: Date;
 }
+

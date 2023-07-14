@@ -1,7 +1,7 @@
 * {
     text-align: center;
     align-items: center;
-    background: rgb(71, 71, 199);
+    /*  background: rgb(71, 71, 199); */
     color: #fff;
 }
 
@@ -22,7 +22,7 @@
     color: #000000;
     background: #d8d2d2;
     border-radius: 5px;
-    width: 80%;
+    width: 50%;
 }
 
 .ajouter {
@@ -48,4 +48,30 @@
 .output span {
     border: 2px solid #fff;
     padding: 2px;
+}
+
+.title-date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.date {
+    font-size: 12px;
+    top: 5px;
+}
+
+.edit-todo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.edit-todo input {
+    margin-right: 10px;
 }

@@ -2,21 +2,27 @@
     <h1>MENU</h1>
     <div class="input-container">
         <h3 for="todoTitle">Todo List </h3>
-        <textarea class="todo-title" rows="10" placeholder="Entrez la tâcle" id="todoTitle" [(ngModel)]="newTodoTitle"></textarea>
+        <textarea class="todo-title" rows="10" placeholder="Entrez la tâche" id="todoTitle" [(ngModel)]="newTodoTitle"></textarea>
         <button class="ajouter" (click)="addTodo()">Ajouter</button>
     </div>
     <div class="output-container">
 
         <div *ngFor="let todo of todos">
             <div class="output">
-                <div>
-                    <span>Titre : {{ todo.title }}</span>
+                <div class="title-date">
+                    <span class="title"> {{ todo.title }}</span>
+                    <span class="date"> {{ todo.createdAt | date }}</span>
                 </div>
                 <div>
-                    <span>Date de création : {{ todo.createdAt | date }}</span>
-                    <button (click)=" editTodo(todo) ">Modifier</button>
+
+                    <button (click)=" editeTodo(todo) ">Modifier</button>
                     <button (click)="deleteTodo(todos.indexOf(todo)) ">Supprimer</button>
 
+                </div>
+                <div class="edit-todo" *ngIf="editTodo">
+                    <input type="text" [(ngModel)]="editTodo.title" placeholder="Titre de la tâche">
+                    <input type="date" [(ngModel)]="editTodo.createdAt">
+                    <button (click)="updateTodo()">Mettre à jour</button>
                 </div>
 
             </div>
